@@ -34,16 +34,20 @@
                     <MenuItems
                       class="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white dark:bg-churpy-night dark:border dark:border-gray-400 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
                     >
-                      <div class="px-1 py-1" :key="index" v-for="(option, index) in ['Profile','Signout']">
+                      <div class="px-1 py-1" :key="index" v-for="(option, index) in [
+                          {name:'Profile', action:() => $router.push({name:'settings'})},
+                          {name:'Signout', action: login},
+                      ]">
                         <MenuItem as="div" v-slot="{ active, disabled }">
                             <button
+                              @click="option.action"
                               :class="[
                                 active ? 'bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-300' : 'text-gray-900 dark:text-gray-400',
                                 'group flex w-full items-center rounded-sm px-2 py-2 text-sm',
                               ]"
                             >
                               <span class="flex items-center">
-                                {{option}}
+                                {{option.name}}
                               </span>
                             </button>
                         </MenuItem>
@@ -86,8 +90,11 @@ export default{
   setup(){
     const store = useUiStore()
     const {getRandomColor} = inject('helpers')
+      const login = () => {
+        window.location.replace('/auth/login')
+      }
 
-    return {store, getRandomColor}
+    return {store, getRandomColor, login}
   }
 }
 
