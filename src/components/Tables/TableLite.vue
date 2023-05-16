@@ -118,21 +118,17 @@
 
         </div>
   </div>
-
-    <ReconTableSettings v-if="settings" :columns="headers" @close="open_settings = !open_settings" :open="open_settings" />
-
 </template>
 
 <script>
 import {inject, toRef, ref, computed, watch, toRefs} from "vue";
 import { useTables } from "@/library/tables";
 import Empty from "@/components/elements/Empty.vue";
-import Paginator from "@/components/widgets/Tables/Pagination/Paginator.vue";
-import ReconTableSettings from "@/components/page/Recon/ReconTableSettings.vue";
+import Paginator from "@/components/Tables/Pagination/Paginator.vue";
 
 export default {
   name: "TableLite",
-  components: {ReconTableSettings, Paginator, Empty},
+  components: {Paginator, Empty},
   props:{
     loading:{default:false},
     settings: Boolean,

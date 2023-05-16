@@ -55,11 +55,12 @@ export class ThemeGenerator{
         return {
           theme: (() => {
             switch(variant) {
-                case 'success': return 'border border-transparent text-white bg-brand-blue hover:bg-green-600 focus:ring-brand-blue';
+                case 'success': return 'border border-transparent text-white bg-green-600 hover:bg-green-600/90 focus:ring-green-600';
                 case 'danger' :return 'border border-transparent text-white bg-red-500 hover:bg-red-600 focus:ring-red-500';
                 case 'warning' : return 'border border-transparent text-white bg-orange-400 hover:bg-orange-500 focus:ring-orange-400';
                 case 'dark' : return 'border border-transparent text-white bg-churpy-dark hover:bg-churpy-dark/90 focus:ring-churpy-dark';
                 case 'secondary' : return 'bg-transparent hover:bg-gray-100 dark:hover:bg-churpy-night focus:ring-gray-400 border border-gray-500';
+                case 'primary': return 'border border-transparent text-white bg-brand-blue hover:bg-sky-600 focus:ring-sky-600';
                 default: return 'border border-transparent text-white bg-indigo-500 hover:bg-indigo-600 focus:ring-indigo-500';
             }
 
