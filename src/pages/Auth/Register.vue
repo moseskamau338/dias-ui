@@ -18,15 +18,15 @@
 
             <form @submit.prevent="handleRegister" class="space-y-3 mt-2">
                 <div class="mx-auto">
-                  <label for="email" class="block text-sm font-medium"> First Name </label>
+                  <label for="first_name" class="block text-sm font-medium"> First Name </label>
                   <div class="mt-1">
-                    <input type="email" required name="email" id="email" autocomplete="username" class="shadow-sm focus:ring-brand-blue focus:border-brand-blue block w-full sm:text-sm border-gray-300 rounded-md placeholder-gray-400 dark:bg-churpy-night dark:border-slate-600" placeholder="e.g email@company.com" v-model="state.first_name" />
+                    <input v-model="state.first_name" type="text" required name="first_name" id="first_name" autocomplete="first_name" class="shadow-sm focus:ring-brand-blue focus:border-brand-blue block w-full sm:text-sm border-gray-300 rounded-md placeholder-gray-400 dark:bg-churpy-night dark:border-slate-600" placeholder="John"/>
                   </div>
                 </div>
                 <div class="mx-auto">
-                  <label for="email" class="block text-sm font-medium"> Last Name </label>
+                  <label for="last_name" class="block text-sm font-medium"> Last Name </label>
                   <div class="mt-1">
-                    <input type="email" required name="email" id="email" autocomplete="username" class="shadow-sm focus:ring-brand-blue focus:border-brand-blue block w-full sm:text-sm border-gray-300 rounded-md placeholder-gray-400 dark:bg-churpy-night dark:border-slate-600" placeholder="e.g email@company.com" v-model="state.last_name" />
+                    <input type="text" required name="last_name" id="last_name" autocomplete="last_name" class="shadow-sm focus:ring-brand-blue focus:border-brand-blue block w-full sm:text-sm border-gray-300 rounded-md placeholder-gray-400 dark:bg-churpy-night dark:border-slate-600" placeholder="Doe" v-model="state.last_name" />
                   </div>
                 </div>
                 <div class="mx-auto">
@@ -139,6 +139,7 @@ export default {
              type:'danger'
          });
       })
+      .finally(() => {state.processing = false})
 
     }
 
